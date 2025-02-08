@@ -1,7 +1,8 @@
-const apiKey = import.meta.env.VITE_API_KEY;
+import config from "./config.js";
+const { API_KEY } = config;
 
-const url_region = `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${VITE_API_KEY}&numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
-const url_detailRegion = `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${VITE_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&areaCode=1&_type=json`;
+const url_region = `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${API_KEY}&numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
+const url_detailRegion = `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&areaCode=1&_type=json`;
 
 const checkRegionCodeButton = document.getElementById("checkRegionCode");
 const detailRegionSelect = document.getElementById("detailRegionSelect");
@@ -14,9 +15,9 @@ const detaildetailRegionIndexSelect = document.getElementById(
 const dataDisplay = document.getElementById("data");
 const searchButton = document.getElementById("searchButton");
 
-const url_region_tourInfo = `https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=study&_type=json&areaCode=1&sigunguCode=1&serviceKey=${VITE_API_KEY}`;
+const url_region_tourInfo = `https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=study&_type=json&areaCode=1&sigunguCode=1&serviceKey=${API_KEY}`;
 
-const url_location_tourInfo = `https://apis.data.go.kr/B551011/KorService1/locationBasedList1?numOfRows=100&MobileOS=ETC&MobileApp=study&mapX=127.919482&mapY=37.341868&radius=3000&serviceKey=${VITE_API_KEY}`;
+const url_location_tourInfo = `https://apis.data.go.kr/B551011/KorService1/locationBasedList1?numOfRows=100&MobileOS=ETC&MobileApp=study&mapX=127.919482&mapY=37.341868&radius=3000&serviceKey=${API_KEY}`;
 
 checkRegionCodeButton.addEventListener("click", () => {
   fetch(url_region)
