@@ -1,4 +1,4 @@
-// config.js에서 API_KEY를 불러옵니다.
+// /config.js에서 API_KEY를 불러옵니다.
 import config from "./config.js";
 const { API_KEY } = config;
 
