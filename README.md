@@ -59,3 +59,6 @@
 ## API 사용 ⚙️
 
 이 프로젝트는 **TourAPI**를 사용하여 지역 코드 및 관광 정보를 불러옵니다. API 호출에 필요한 `serviceKey`는 `config.js` 파일에 설정됩니다.
+
+- **공공데이터 포털**: [https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15101578](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15101578)
+- **TourAPI 공식 사이트**: [https://api.visitkorea.or.kr/#/](https://api.visitkorea.or.kr/#/)
