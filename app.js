@@ -10,6 +10,9 @@ const url_detailRegion = `https://apis.data.go.kr/B551011/KorService1/areaCode1?
 
 // DOM 요소들 변수로 저장 (버튼, 셀렉트 박스 등)
 const checkRegionCodeButton = document.getElementById("checkRegionCode");
+const checkDetailRegionCodeButton = document.getElementById(
+  "checkDetailRegionCode"
+);
 const detailRegionSelect = document.getElementById("detailRegionSelect");
 const detailRegionIndexSelect = document.getElementById(
   "detailRegionIndexSelect"
@@ -20,21 +23,23 @@ const detaildetailRegionIndexSelect = document.getElementById(
 const dataDisplay = document.getElementById("data");
 const searchButton = document.getElementById("searchButton");
 
+// 지역 코드 조회 버튼 이벤트 리스너 추가
+checkRegionCodeButton.addEventListener("click", () => {
+  fetch(url_region)
+    .then((res) => res.json())
+    .then((myJson) => {
+      dataDisplay.innerText = JSON.stringify(myJson, null, 2);
+    })
+    .catch((error) => {
+      dataDisplay.innerText = "Error fetching data: " + error;
+    });
+});
+
 // 지역 기반 관광 정보 조회 URL (기본적으로 서울, 시군구 코드 1)
 const url_region_tourInfo = `https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=study&_type=json&areaCode=1&sigunguCode=1&serviceKey=${API_KEY}`;
 
 // 위치 기반 관광 정보 조회 URL (기본적으로 지정된 좌표와 반경으로 조회)
 const url_location_tourInfo = `https://apis.data.go.kr/B551011/KorService1/locationBasedList1?numOfRows=100&MobileOS=ETC&MobileApp=study&mapX=127.919482&mapY=37.341868&radius=3000&serviceKey=${API_KEY}`;
-
-// 지역 코드 확인 버튼 클릭 시 이벤트
-checkRegionCodeButton.addEventListener("click", () => {
-  // 지역 코드 API 호출 후 결과를 출력
-  fetch(url_region)
-    .then((res) => res.json())
-    .then((myJson) => {
-      dataDisplay.innerText = JSON.stringify(myJson, null, 2);
-    });
-});
 
 // 세부 지역 셀렉트 박스 및 시군구 셀렉트 박스 초기화
 const detailRegionCodes = [
@@ -116,6 +121,23 @@ detailRegionIndexSelect.addEventListener("change", () => {
 
 // 서울을 기본값으로 시군구 데이터 초기화
 populateSigunguSelect(1);
+
+// 세부 지역별 코드 확인하기 버튼 클릭 시 이벤트
+checkDetailRegionCodeButton.addEventListener("click", () => {
+  const selectedAreaCode = detailRegionSelect.value;
+  const detailUrl = url_detailRegion.replace(
+    "areaCode=1",
+    `areaCode=${selectedAreaCode}`
+  );
+  fetch(detailUrl)
+    .then((res) => res.json())
+    .then((myJson) => {
+      dataDisplay.innerText = JSON.stringify(myJson, null, 2);
+    })
+    .catch((error) => {
+      dataDisplay.innerText = "Error fetching data: " + error;
+    });
+});
 
 // 지역 기반 관광 정보 조회 버튼 클릭 시 이벤트
 searchButton.addEventListener("click", () => {

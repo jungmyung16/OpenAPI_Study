@@ -35,7 +35,7 @@
     <button id="locationsearchButton">위치기반 조회하기</button>
 
     <!-- 카카오 지도 영역 -->
-    <div id="map" style="width: 500px; height: 400px"></div>
+    <!-- <div id="map" style="width: 500px; height: 400px"></div> -->
 
     <!-- 실제로 지도를 그리는 API호출 -->
     <!-- 
@@ -43,54 +43,7 @@
 
     API를 로딩하는 스크립트 태그는 HTML파일안의 head, body 등 어떠한 위치에 넣어도 상관없습니다.
     하지만, 반드시 실행 코드보다 먼저 선언되어야 합니다. 
-    --><!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <!-- 문자 인코딩과 반응형 디자인을 위한 뷰포트 설정 -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- 페이지 제목 -->
-        <title>TourAPI 지역 코드 조회</title>
-
-        <!-- 외부 JavaScript 파일들 (config.js는 API 키 설정, app.js는 로직 처리) -->
-        <script type="module" src="config.js"></script>
-        <script type="module" src="app.js"></script>
-      </head>
-      <body>
-        <!-- 페이지의 주요 제목 -->
-        <h1>TourAPI 사용을 위해 지역 코드 조회하기</h1>
-        <hr />
-
-        <!-- 지역 코드 조회 섹션 -->
-        <h2>[지역코드 조회]</h2>
-        <!-- 지역 코드 확인을 위한 버튼 -->
-        도별 코드 확인하기 : <button id="checkRegionCode">확인하기</button
-        ><br />
-
-        <!-- 세부 지역을 선택할 수 있는 드롭다운 -->
-        세부 지역별 코드 확인하기 :
-        <select id="detailRegionSelect"></select>
-        <!-- 세부 지역 코드 조회 버튼 -->
-        <button id="checkDetailRegionCode">조회하기</button>
-        <hr />
-
-        <!-- 지역 기반 관광 정보 조회 섹션 -->
-        <h2>[위치 기반 관광정보 조회]</h2>
-        <!-- 위도, 경도, 범위 값을 입력할 수 있는 입력 필드 -->
-        위도값 입력 : <input type="text" id="latitude" /><br />
-        경도값 입력 : <input type="text" id="longitude" /><br />
-        범위값 입력 : <input type="text" id="radius" /><br />
-        <!-- 위치 기반 조회 버튼 -->
-        <button id="locationsearchButton">위치기반 조회하기</button>
-
-        <!-- 카카오 지도 표시를 위한 영역 -->
-        <div id="map" style="width: 500px; height: 400px"></div>
-
-        <!-- API 호출을 통해 데이터를 출력할 p 태그 -->
-        <p id="data"></p>
-      </body>
-    </html>
+    -->
 
     <!-- TourAPI 데이터 표기를 위해 p태그 -->
     <p id="data"></p>
